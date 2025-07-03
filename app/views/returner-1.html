@@ -1,0 +1,167 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" method="post" onsubmit="return validateForm()">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group" id="checkbox-group">
+        <fieldset class="govuk-fieldset" aria-describedby="returner-one-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Did {{ data['firstName'] }} work in early years between <span id="six-months-before-start-date"></span> and <span id="start-date-header"></span>?
+            </h1>
+          </legend>
+  
+  <p id="returner-one-error" class="govuk-error-message" style="display: none;">
+    <span class="govuk-visually-hidden">Error:</span> You must select an option below to continue
+  </p>
+  
+  <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="returner-1-yes" name="returnerOne" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="returner-1-yes">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="returner-1-no" name="returnerOne" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="returner-1-no">
+        No
+      </label>
+    </div>
+  </div>
+  
+</div>
+  </div>
+  
+</div>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+  <script>
+    function validateForm() {
+      var radios = document.getElementsByName('returnerOne');
+      var formValid = false;
+
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          formValid = true;
+          break;
+        }
+      }
+
+      if (!formValid) {
+        document.getElementById('returner-one-error').style.display = 'block';
+        document.getElementById('checkbox-group').classList.add('govuk-form-group--error');
+        return false;
+      }
+
+      return true;
+    }
+
+  </script>
+
+<script>
+  // Function to retrieve and display the start date one day before
+  function displayStartDate() {
+    // Retrieve the start date from sessionStorage
+    var startDateString = sessionStorage.getItem('startDate');
+
+    // Check if the start date is stored
+    if (startDateString) {
+      // Convert the stored string back to a Date object
+      var startDate = new Date(startDateString);
+
+      // Subtract one day from the start date
+      var oneDayBeforeStartDate = new Date(startDate);
+      oneDayBeforeStartDate.setDate(startDate.getDate() - 1);
+
+      // Format the date as "Day Month Year" (e.g., "1 July 2004")
+      var formattedStartDate = oneDayBeforeStartDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      // Display the formatted start date in the header or any desired location
+      document.getElementById('start-date-header').textContent = formattedStartDate;
+    } else {
+      // Handle case where start date is not stored (optional)
+      console.log('Start date is not available.');
+    }
+  }
+
+  // Call displayStartDate function when the page is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    displayStartDate(); // Call the function to display the start date one day before
+  });
+
+</script>
+
+<script>
+// Function to retrieve and display the start date six months before
+function displayStartDateSixMonthsBefore() {
+  // Retrieve the start date from sessionStorage
+  var startDateString = sessionStorage.getItem('startDate');
+
+  // Check if the start date is stored
+  if (startDateString) {
+    // Convert the stored string back to a Date object
+    var startDate = new Date(startDateString);
+
+    // Subtract six months from the start date
+    var sixMonthsBeforeStartDate = new Date(startDate);
+    sixMonthsBeforeStartDate.setMonth(startDate.getMonth() - 6);
+
+    // Format the date as "Day Month Year" (e.g., "1 July 2004")
+    var formattedStartDate = sixMonthsBeforeStartDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    // Display the formatted start date in the specified location
+    document.getElementById('six-months-before-start-date').textContent = formattedStartDate;
+  } else {
+    // Handle case where start date is not stored (optional)
+    console.log('Start date is not available.');
+  }
+}
+
+// Call displayStartDateSixMonthsBefore function when the page is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  displayStartDateSixMonthsBefore(); // Call the function to display the start date six months before
+});
+
+</script>
+
+{% endblock %}

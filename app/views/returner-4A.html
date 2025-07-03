@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" method="post" onsubmit="return validateForm()">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group" id="checkbox-group">
+        <fieldset class="govuk-fieldset" aria-describedby="returner-three-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Was {{ data['firstName'] }}'s previous role in an early years setting non-permanent?
+            </h1>
+          </legend>
+  <p id="returner-three-error" class="govuk-error-message" style="display: none;">
+    <span class="govuk-visually-hidden">Error:</span> You must select an option below to continue
+  </p>
+  <br>
+  <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="returner-three-yes" name="returnerThree" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="returner-three-yes">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="returner-three-no" name="returnerThree" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="returner-three-no">
+        No
+      </label>
+    </div>
+  </div>
+</div>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        What does non-permanent mean?
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <p class="govuk-body">In the six months before starting their current role, your employee must not have had a permanent role working directly with children in an early years setting.</p>
+      <p>If they did work in early years in the 6 months before starting their current role, you can claim if this was in the following types of employment:</p>
+  
+      <ul class="govuk-list govuk-list--bullet">
+        <li>voluntary or unpaid work</li>
+        <li>casual and temporary</li>
+        </ul>
+        <p>Casual or temporary work could include:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>zero-hour contracts</li>
+          <li>guaranteed minimum hour contracts</li>
+          <li>self-employed or freelance contracts</li>
+          <li>fixed term contracts (FTCs)</li>
+          <li>agency work and apprenticeship roles</li>
+          </ul>
+          
+    </div>
+  </details>
+  
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+  <script>
+    function validateForm() {
+      var radios = document.getElementsByName('returnerThree');
+      var formValid = false;
+
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          formValid = true;
+          break;
+        }
+      }
+
+      if (!formValid) {
+        document.getElementById('returner-three-error').style.display = 'block';
+        document.getElementById('checkbox-group').classList.add('govuk-form-group--error');
+        return false;
+      }
+
+      return true;
+    }
+
+  </script>
+
+{% endblock %}

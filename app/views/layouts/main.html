@@ -4,3 +4,76 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+  
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+  
+      {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    </div>
+  </div>
+  
+
+  {% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+        href: "/consent",
+        text: "Skip sign in"
+      },
+       {
+        href: "/child-facing-A",
+        text: "Question 1A"
+      },
+      {
+        href: "/child-facing-B",
+        text: "Question 1B"
+      },
+      {
+        href: "/returner-1",
+        text: "Question 2"
+      },
+      {
+        href: "/returner-4A",
+        text: "Question 4A"
+      },
+      {
+        href: "/returner-4B",
+        text: "Question 4B"
+      },
+      {
+        href: "/guidance-landing",
+        text: "Guidance"
+      },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}

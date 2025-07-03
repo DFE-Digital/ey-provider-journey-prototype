@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+    </span>
+  </p>
+</div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/current-school-playback" method="post" onsubmit="return validateForm()">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div id="nursery-name-group" class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="nursery-name">
+            What is the name of the nursery where your employee works?
+          </label>
+        </h1>
+        <div id="nursery-name-hint" class="govuk-hint">
+          Enter the nursery name or postcode. Use at least three characters.
+        </div>
+        <p id="nursery-name-error" class="govuk-error-message" style="display: none;">
+          <span class="govuk-visually-hidden">Error:</span> Enter nursery name or postcode
+        </p>
+        <input class="govuk-input" id="nursery-name" name="nurseryName" type="text" aria-describedby="nursery-name-hint nursery-name-error">
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </div>
+  </div>
+</form>
+
+<script>
+  function validateForm() {
+    var nurseryName = document.getElementById("nursery-name").value;
+    if (nurseryName.trim() === "") {
+      document.getElementById("nursery-name-group").classList.add("govuk-form-group--error");
+      document.getElementById("nursery-name-error").style.display = "block";
+      return false;
+    }
+    return true;
+  }
+</script>
+{% endblock %}
+

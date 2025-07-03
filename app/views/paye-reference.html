@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div id="employee-paye-group" class="govuk-form-group">
+
+      <h1 class="govuk-label-wrapper">
+      <!-- <span class="govuk-caption-l">Employee details</span> -->
+      <label class="govuk-label govuk-label--l" for="employee-paye">
+        What is {{ data['nurseryName'] }}'s employer PAYE reference?
+      </label>
+    </h1>
+    <div id="employee-paye-hint" class="govuk-hint">
+      <p>This is a series of numbers and letters separated with a slash, like 123/AB456. Your organisation's payroll or human resources can provide this.</p>
+
+    </div>
+
+    <div id="employee-paye-hint" class="govuk-hint">
+      <p>We need this to check that the employee is still working at your setting after 6 months.</p>
+    </div>
+
+      <form class="form" action="/claimant-name" method="post" onsubmit="return validateForm();">
+
+        <p>
+          <div class="govuk-form-group">
+            <p id="employee-paye-error" class="govuk-error-message" style="display: none;">
+              <span class="govuk-visually-hidden">Error:</span> Enter a valid PAYE reference
+            </p>
+            <input class="govuk-input govuk-input--width-10" id="employee-paye" name="employeePaye" type="text">
+          </div>
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      var nurseryName = document.getElementById("employee-paye").value;
+      if (nurseryName.trim() === "") {
+        document.getElementById("employee-paye-group").classList.add("govuk-form-group--error");
+        document.getElementById("employee-paye-error").style.display = "block";
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+{% endblock %}

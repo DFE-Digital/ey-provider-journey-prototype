@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+      <h1 class="govuk-heading-l">
+        This person may not be eligible
+      </h1>
+
+      <p>
+        This person needs to have started their role after 11 November 2024.
+      </p>
+      <p>
+        Based on the date you’ve provided, this person is not eligible for an early years financial incentive payment.
+      </p>
+
+      <p>
+        For further guidance, you should refer to the full eligibility criteria at the start of this service.
+      </p>
+
+        <h2 class="govuk-heading-m">Get help with your claim</h2>
+
+      <p>
+        Contact us for help at <a href="mailto:EY.Financial-Incentives@education.gov.uk">EY.Financial-Incentives@education.gov.uk</a>.
+      </p>
+
+      {{ govukButton({
+        text: "Start again"
+      }) }}
+
+    </div>
+    </form>
+  </div>
+
+  <script>
+    // Retrieve start date from session storage
+    const startDateString = sessionStorage.getItem('startDate');
+    if (startDateString) {
+      const startDate = new Date(startDateString);
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const formattedStartDate = startDate.toLocaleDateString('en-GB', options);
+      document.getElementById('startDate').textContent = formattedStartDate;
+    }
+  </script>
+
+{% endblock %}

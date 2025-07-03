@@ -1,0 +1,283 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Early years incentive payment guidance
+{% endblock %}
+
+
+{% block header %}
+  <!-- Blank header with no service name for this page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Education, training and skills",
+        href: "#"
+      },
+      {
+        text: "Teaching and leadership",
+        href: "#"
+      },
+      {
+        text: "Recruiting, inducting and managing teachers",
+        href: "#"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+  
+
+      <h1 class="govuk-heading-xl">
+        Claim an early years financial incentive payment
+      </h1>
+      
+
+      <p class="govuk-body-l">This scheme enables nurseries in participating local authorities to offer £1,000 bonuses to recruit new and returning educators.</p>
+
+      <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+        <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+          <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+            Contents
+          </h2>
+          <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#">
+                Overview
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#">
+                Eligible nurseries
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active">
+              <a href="#">
+              How it works
+            </li>
+              <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Eligible early years educators
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Income Tax, National Insurance and pensions
+              </a>
+            </li>
+            <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+              <a href="#">
+                Student loans
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+      
+
+
+      <div style="background-color: #f3f2f1; padding: 40px; padding-bottom: 20px;">
+        <h2 class="govuk-heading-m">Start or complete a claim</h2>
+        <p class="govuk-body">
+          If you work at a nursery that’s successfully recruited a new early years (EY) educator, you need to <a href="/landing-page">make a claim on their behalf</a>. All new claims need to be made by [date]. 
+        </p>
+        <br>
+        <p class="govuk-body">
+          If you’re an EY educator and you’ve received an email confirming that your employer has started a claim for you, you need to <a href="/landing-page-practitioners">complete the claim to receive the £1,000 payment</a>. All claims need to be completed by [date].
+        </p>
+      </div>
+
+      <br>
+
+
+      <h1 class="govuk-heading-l">
+        Overview
+      </h1>
+      <p>DfE has allocated funding to eligible nurseries to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>support with recruitment, by offering a £1,000 incentive payment (recruitment bonus) to new and returning EY educators</li>
+        <li>increase the number of permanent EY educators in the early years workforce</li>
+      </ul>
+      <p>The scheme runs from [scheme start date] to [scheme end date].</p>
+      <p>Recruitment bonuses can be offered in job adverts for permanent part-time and full-time roles. Payments will be made directly to educators by DfE once they have been in the role for 6 months.</p>
+      <div class="govuk-inset-text">
+        Eligible nurseries can make claim applications for EY educators as soon as they start their role. DfE will make payments directly to EY educators after they have been in their role for 6 months.
+      </div>
+      
+      <h1 class="govuk-heading-l">
+        Eligible nurseries
+      </h1>
+
+      <p class="govuk-body">Only nurseries that have been contacted by DfE in the following local authorities are eligible to take part in the scheme:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>Barking and Dagenham</li>
+      <li>Coventry</li>
+      <li>Gateshead</li>
+      <li>Redcar and Cleveland</li>
+      <li>Telford and Wrekin</li>
+      <li>Thurrock</li>
+      <!-- Any additions (make sure they’re added in alphabetical order) -->
+      </ul>
+
+      <p class="govuk-body">These local authorities were chosen because they have:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>high levels of deprivation</li>
+      <li>low numbers of available nursery places compared to the number of children who need a place</li>
+      </ul>
+
+      <div class="govuk-inset-text">Recruitment bonuses will be reserved for nurseries in the order claims are received. Eligible nurseries will be notified by email when bonuses are running low.</div>
+      
+      <h1 class="govuk-heading-l">
+        How it works
+      </h1>
+      
+      <p class="govuk-body">To be eligible for a payment, an EY educator must have:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>applied for a role with an incentive attached </li>
+      <li>started in their new role between [eligibility window start date] and [eligibility window end date]</li>
+      </ul>   
+
+      <p class="govuk-body">EY educators can either be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>new to the sector</li>
+      <li>moving from a temporary contract or apprenticeship to a permanent contract</li>
+      <li>returning after a break of at least 6 months</li>
+      </ul>   
+
+      <p class="govuk-body">Once an EY educator has started their new role:</p>
+      <ol class="govuk-list govuk-list--number">
+        <li>The nursery needs to <a href="/landing-page">start a claim on their behalf</a>.</li>
+        <li>The money will be reserved for the EY educator and they will receive an email inviting them to <a href="/landing-page-practitioners">complete the claim</a>.</li>
+        <li>After 6 months, the nursery will be asked via email to confirm that the EY educator is still in their role.</li>
+        <li>If the EY educator is still in their role, DfE will pay the recruitment bonus directly into their bank account.</li>
+      </ol>
+
+      <p>If an EY educator receives a recruitment bonus and then leaves their job, they can apply for the payment again in the future. They must meet the following conditions to be eligible:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>in the 6 months before applying again, they cannot work directly with children for 70% or more of the time in their new role</li>
+        <li>after becoming eligible, they must wait another 6 months before receiving the payment</li>
+      </ul>
+
+        <h1 class="govuk-heading-l">
+          Eligible early years educators
+      </h1>
+
+      <p>EY educators who are new or returning to an early years setting are eligible if:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the role they’ve applied for is a permanent part-time or full-time contract - they do not need to work a minimum number of contracted hours to be eligible</li>
+        <li>they’ll spend most of the time (70% or more) in their role working directly with children</li>
+        <li>they have not worked in a permanent nursery role in the 6 months prior to starting their new role, where they spent most of their time (70% or more) working directly with children</li>
+      </ul>
+      
+      <p>Applicants do not need to have any early years qualifications or have worked in a nursery before.</p>
+      <p>EY educators are not eligible for a £1,000 recruitment bonus if they are:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>an employee who has returned from a long period of leave, such as maternity leave</li>
+        <li>on a non-permanent contract - such as a temporary, voluntary or agency contract</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Apprenticeships
+      </h2>
+
+      <p>Recruitment bonuses are not available to apprentices, even if they have a permanent contract during their apprenticeship.</p>
+      <p>Apprentices can receive a recruitment bonus when they move from being an apprentice to an employee. To qualify, they must:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>complete their apprenticeship</li>
+        <li>be taken on in a permanent part-time or full-time role</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Working directly with children
+      </h2>
+
+      <p class="govuk-body">Working directly with children can involve any of the following:</p>
+      <ul class="govuk-list govuk-list--bullet">
+      <li>working in the room with children - this can include playrooms, base rooms and classrooms</li>
+      <li>guiding, supporting and interacting with children in their learning and development</li>
+      <li>giving hands-on care, including health and hygiene</li>
+      </ul>
+
+      <h1 class="govuk-heading-l">
+        Income Tax, National Insurance and pensions
+      </h1>
+      <p>We’ll pay National Insurance and basic rate Income Tax for the recruitment bonus on behalf of the EY educator. If an EY educator earns £50,270 or more per year, they’ll need to pay any Income Tax at the higher rate through PAYE.</p>
+      <p>The bonus is not part of the EY educator’s salary from their employer. The EY educator, the nursery or the government will not make a contribution to the EY educator’s pension as part of the payment.</p>
+      <p>The recruitment bonus, along with the Income Tax and National Insurance contributions made on the EY educator’s behalf, will count towards their income. EY educators should consider how this will affect any other benefits or tax credits they receive, such as <a href="https://www.gov.uk/guidance/universal-credit-and-earnings">Universal Credit</a>.</p>
+
+      <h2 class="govuk-heading-m">Student loan</h2>
+
+      <p>The £1,000 recruitment bonus will not be affected by any funding the EY educator has previously received to study for a college course or apprenticeship.</p>
+      <p>If the EY educator has previously studied at university and has a student loan, the following conditions apply:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>if they’re currently repaying a student loan, a deduction towards it may come out of their £1,000 recruitment bonus</li>
+        <li>if their recruitment bonus takes them over the amount they must earn to start paying back a student loan, a deduction may go towards repaying it</li>
+      </ul>
+      
+      <p>Read more about <a href="https://www.gov.uk/repaying-your-student-loan/when-you-start-repaying">when an EY educator will start paying back a student loan (opens in new tab)</a> and <a href="https://www.gov.uk/repaying-your-student-loan/what-you-pay">what they’ll pay (opens in new tab)</a>.</p>
+      <p>They may be able to claim any deductions back at the end of the tax year. Read more about how EY educators can <a href="https://www.gov.uk/repaying-your-student-loan/getting-a-refund">claim back student loan deductions (opens in new tab)</a>.</p>
+
+
+      <nav class="govuk-prototype-kit-common-templates-pagination" role="navigation" aria-label="Pagination">
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.gov.uk/government/publications/early-years-financial-incentives#full-publication-update-history">
+                Early years financial incentives
+              </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/government/collections/additional-payments-for-teaching-eligibility-and-payment-details">
+                Additional payments for teaching: eligibility and payment details
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+  </main>
+</div>
+
+
+    </div>
+  </div>
+
+{% endblock %}

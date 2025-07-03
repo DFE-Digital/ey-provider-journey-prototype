@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+  homepageUrl: "/index",
+  serviceName: "Claim an early years financial incentive payment",
+  serviceUrl: "/index"
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!---<span class="govuk-caption-l">Guidance</span>--->
+    <h1 class="govuk-heading-xl">
+      Complete a claim for an early years financial incentive payment
+    </h1>
+	
+	
+
+    <p class="govuk-body-l">
+      Use this service to complete a claim for a £1,000 recruitment bonus
+      </p>
+      
+      
+
+  </div>
+  
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+    
+    <h2 class="govuk-heading-l">
+      What you’ll need to complete a claim
+    </h2>
+
+    <p>Once your employer has started a claim on your behalf, you’ll receive an email inviting you to complete it. The email will contain a claim reference number, which you’ll be asked to enter in the next step.</p>
+    <p>You’ll also need:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a form of photo ID, such as a passport or driving licence - this is so that we can <a href="https://www.gov.uk/using-your-gov-uk-one-login/proving-your-identity">verify your identity</a> via GOV.UK One Login</li>
+      <li>your address, email address and National Insurance number</li>
+      <li>your bank details – this is so that we can pay your recruitment bonus to you directly</li>
+    </ul>
+
+    <p>The online application should take no longer than 15 minutes to complete. To protect your information, each page will time out after 30 minutes.</p>
+
+    <div class="govuk-inset-text">If you cannot prove your identity online using GOV.UK One Login, you’ll need to visit a Post Office that offers<a href="https://www.postoffice.co.uk/identity/in-branch-verification-service"> ‘in branch verification’.</a> It could take up to 10 working days to complete a claim application using this route</div>
+  
+      <h2 class="govuk-heading-l">
+        What happens after you complete your claim
+      </h2>
+
+      <p>Your claim will be approved once we confirm with your employer that you’ve:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>been in your role for 6 months</li>
+        <li>met all the eligibility criteria</li>
+        </ul>
+
+        <p>The recruitment bonus will be paid up to 6 weeks after your claim is approved.</p>
+        <p>We’ll email you and your employer:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>to let you know we’re still processing your claim</li>
+          <li>when we approve or reject your claim</li>
+          <li>once your recruitment bonus has been paid, if your claim is approved</li>
+          </ul>
+
+          <h2 class="govuk-heading-l">
+            Get help with your claim
+          </h2>
+
+        <p>You can get help with your claim by contacting <a href="mailto:EY.Financial-Incentives@education.gov.uk">EY.Financial-Incentives@education.gov.uk</a>.</p>
+        <p>Read more about the <a href="https://www.claim-additional-teaching-payment.service.gov.uk/early-years-payment/guidance">early years incentive payment for new and returning practitioners guidance</a>.</p>
+
+
+      {{ govukButton({
+        text: "Start now",
+        href: "https://ey-claimant-journey-prototype-e1c05cce67c7.herokuapp.com/email-address-page",
+        isStartButton: true
+      }) }}
+
+
+    </div>
+  </div>
+
+
+{% endblock %}

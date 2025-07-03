@@ -3,10 +3,11 @@ node_modules/
 
 # Prototype ignores - per-user
 .tmp/
-.env
 migrate.log
 usage-data-config.json
 
 # General ignores
 .DS_Store
 .idea
+ey-provider-test-v1/
+.env

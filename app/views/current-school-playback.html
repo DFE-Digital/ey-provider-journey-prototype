@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" method="post" onsubmit="return validateForm()">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group" id="checkbox-group">
+        <fieldset class="govuk-fieldset" aria-describedby="currentSchool-item-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Confirm that your employee works at the location below
+            </h1>
+          </legend>
+          <div id="signIn-hint" class="govuk-hint">
+            Select the nursery where your employee works below.
+          </div>
+  <p id="currentSchool-item-error" class="govuk-error-message" style="display: none;">
+    <span class="govuk-visually-hidden">Error:</span> You must select an option below to continue
+  </p>
+  <br>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="nursery-name" name="currentSchool" type="radio" value="true" aria-describedby="currentSchool-item-hint">
+        <label class="govuk-label govuk-radios__label" for="signIn">
+          {{ data['nurseryName'] }} 
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          123 Address St, Manchester, M1 2AB
+        </div>
+      </div>
+      <div class="govuk-radios__divider">or</div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="nursery-name-none-of-the-above" name="currentSchool" type="radio" value="none-of-the-above">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-6">
+          None of the above
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+  <script>
+    function validateForm() {
+      var radios = document.getElementsByName('currentSchool');
+      var formValid = false;
+
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          formValid = true;
+          break;
+        }
+      }
+
+      if (!formValid) {
+        document.getElementById('currentSchool-item-error').style.display = 'block';
+        document.getElementById('checkbox-group').classList.add('govuk-form-group--error');
+        return false;
+      }
+
+      return true;
+    }
+
+  </script>
+
+{% endblock %}
+

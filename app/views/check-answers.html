@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+    </span>
+  </p>
+</div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before submitting this claim
+      </h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Employee's workplace</dt>
+          <dd class="govuk-summary-list__value">{{ data['nurseryName'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/current-school">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Employee's name</dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['firstName'] }} {{ data['middleName'] }} {{ data['lastName'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/claimant-name">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Employee's start date</dt>
+          <dd class="govuk-summary-list__value" id="startDate"></dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/start-date">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Confirmation of child-facing role</dt>
+          <dd class="govuk-summary-list__value">Confirmed</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/child-facing-A">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Financial incentive eligibility</dt>
+          <dd class="govuk-summary-list__value">Confirmed</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/returner-1">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Employee's email address</dt>
+          <dd class="govuk-summary-list__value">{{ data['employeeEmail'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/employee-email">Change</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Employer's PAYE reference</dt>
+          <dd class="govuk-summary-list__value">{{ data['employeePaye'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/paye-reference">Change</a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Before submitting this claim</h2>
+      <p class="govuk-body">
+        By submitting this claim, you're confirming that, to the best of your knowledge, the details you’re providing are correct.
+      </p>
+
+      <div id="provider-name-group" class="govuk-form-group">
+        <label class="govuk-label" for="provider-name">
+          Your full name
+        </label>
+        <p id="provider-name-error" class="govuk-error-message" style="display: none;">
+          <span class="govuk-visually-hidden">Error:</span> You cannot submit this claim without providing your full name
+        </p>
+        <input class="govuk-input" id="provider-name" name="providerName" type="text" aria-describedby="provider-name-error">
+      </div>
+
+      <form class="form" action="/confirmation" method="post" onsubmit="return validateForm()">
+        <input type="hidden" name="answers-checked" value="true">
+        <input type="hidden" id="hidden-provider-name" name="providerName">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Accept and send
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    // Retrieve start date from session storage
+    const startDateString = sessionStorage.getItem('startDate');
+    if (startDateString) {
+      const startDate = new Date(startDateString);
+      const options = { day: 'numeric', month: 'long', year: 'numeric' };
+      const formattedStartDate = startDate.toLocaleDateString('en-GB', options);
+      document.getElementById('startDate').textContent = formattedStartDate;
+    }
+
+    function validateForm() {
+      var providerName = document.getElementById("provider-name").value;
+      var hiddenProviderInput = document.getElementById("hidden-provider-name");
+
+      if (providerName.trim() === "") {
+        document.getElementById("provider-name-group").classList.add("govuk-form-group--error");
+        document.getElementById("provider-name-error").style.display = "block";
+        return false;
+      }
+
+      // Store provider name in the hidden input
+      hiddenProviderInput.value = providerName;
+      return true;
+    }
+  </script>
+
+{% endblock %}

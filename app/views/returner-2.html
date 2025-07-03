@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" method="post" onsubmit="return validateForm()">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group" id="checkbox-group">
+        <fieldset class="govuk-fieldset" aria-describedby="returner-two-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+             Did {{ data['firstName'] }}'s previous role in early years involve mostly working directly with children?
+            </h1>
+          </legend>
+  <br>
+  <p id="returner-two-error" class="govuk-error-message" style="display: none;">
+    <span class="govuk-visually-hidden">Error:</span> You must select an option below to continue
+  </p>
+
+  <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="returner-two-yes" name="returnerTwo" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="returner-three-yes">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="returner-two-no" name="returnerTwo" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="returner-three-no">
+        No
+      </label>
+    </div>
+  </div>
+</div>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does mostly working directly with children mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">Your employee spends most of the time in their role (70% or more) working directly with children.</p>
+  </div>
+  <div class="govuk-details__text">
+    <p class="govuk-body">Working directly with children can involve:</p>
+      
+	  
+          <ul class="govuk-list govuk-list--bullet">
+		  <li>working in the room with children — this can include playrooms, baserooms or classrooms</li>
+          <li>guiding, supporting, and interacting with children in their learning and development</li>
+          <li>giving hands-on care, including health and hygiene</li>
+            
+            </ul>
+  </div>
+</details>
+  
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+  <script>
+    function validateForm() {
+      var radios = document.getElementsByName('returnerTwo');
+      var formValid = false;
+
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          formValid = true;
+          break;
+        }
+      }
+
+      if (!formValid) {
+        document.getElementById('returner-two-error').style.display = 'block';
+        document.getElementById('checkbox-group').classList.add('govuk-form-group--error');
+        return false;
+      }
+
+      return true;
+    }
+
+  </script>
+
+{% endblock %}

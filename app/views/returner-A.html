@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+    </span>
+  </p>
+</div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/employee-email" method="post" onsubmit="return validateForm()">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group" id="checkbox-group">
+      <fieldset class="govuk-fieldset" aria-describedby="returner-B-error">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            I confirm that {{ data['firstName'] }} didn't work in any childcare roles between <span id="six-months-before-start-date"></span> and <span id="start-date-header"></span>
+          </h1>
+        </legend>
+    <div id="returner-A-hint" class="govuk-hint">
+      {{ data['firstName'] }} must not have worked in any childcare role in the 6 months before their current role to be eligible for an incentive payment
+    </div>
+    <p id="returner-B-error" class="govuk-error-message" style="display: none;">
+      <span class="govuk-visually-hidden">Error:</span> You must be able to confirm this information to continue
+    </p>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="declaration-returner-B" name="declarationreturnerB" type="checkbox" value="confirmed">
+          <label class="govuk-label govuk-checkboxes__label" for="declaration-returner-B">
+            I confirm
+          </label>
+        </div>
+      </fieldset>
+    </div>
+<br>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      I cannot confirm this information
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <h3>You must be able to confirm this information before you can continue</h3>
+    <p class="govuk-body">To continue with this claim you must be able to confirm that:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>this role is at least 70% child-facing</li>
+      <li>your employee did not work in any early years roles in the 6 months before starting their current role</li>
+      </ul>
+        <h3>Get help with your claim</h3>
+      <p>
+        Contact us for help at <a class="help@opsteam.gov.uk" href="#">help@opsteam.education.gov.uk</a>.
+      </p>
+  </div>
+</details>
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+  </form>
+  </div>
+</div>
+
+
+<script>
+  function validateForm() {
+    var checkBox = document.getElementById("declaration-returner-B");
+    var errorParagraph = document.getElementById("returner-A-error");
+    if (!checkBox.checked) {
+      errorParagraph.style.display = "block";
+      document.getElementById("checkbox-group").classList.add("govuk-form-group--error");
+      return false;
+    }
+    return true;
+  }
+</script>
+  
+  
+  
+  
+  
+
+{% endblock %}

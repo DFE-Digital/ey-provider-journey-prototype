@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+    </span>
+  </p>
+</div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Who are you making this claim for?
+    </h1>
+
+    <div id="claimant-name-hint" class="govuk-hint">
+      Enter the employee's full legal name as it appears on official identity documents such as passports or driving licenses.
+    </div>
+
+    <form class="form" action="/start-date" method="post" onsubmit="return validateForm()">
+      <p>
+        <div id="first-name-group" class="govuk-form-group">
+          <label class="govuk-label" for="first-name">
+            First name
+          </label>
+          <p id="first-name-error" class="govuk-error-message" style="display: none;">
+            <span class="govuk-visually-hidden">Error:</span> Enter employee's first name
+          </p>
+          <input class="govuk-input" id="first-name" name="firstName" type="text" value="{{ data['first-name'] }}" autocomplete="first-name">
+        </div>
+
+        <div id="last-name-group" class="govuk-form-group">
+          <label class="govuk-label" for="last-name">
+            Last name
+          </label>
+          <p id="last-name-error" class="govuk-error-message" style="display: none;">
+            <span class="govuk-visually-hidden">Error:</span> Enter employee's last name
+          </p>
+          <input class="govuk-input" id="last-name" name="lastName" type="text" value="{{ data['last-name'] }}" autocomplete="last-name">
+        </div>
+      </p>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+<script>
+  function validateForm() {
+    var firstName = document.getElementById("first-name").value.trim();
+    var lastName = document.getElementById("last-name").value.trim();
+    var first_name_error = firstName === "";
+    var last_name_error = lastName === "";
+
+    if (first_name_error || last_name_error) {
+      // Show error states
+      document.getElementById("first-name-group").classList.toggle("govuk-form-group--error", first_name_error);
+      document.getElementById("first-name-error").style.display = first_name_error ? "block" : "none";
+      document.getElementById("last-name-group").classList.toggle("govuk-form-group--error", last_name_error);
+      document.getElementById("last-name-error").style.display = last_name_error ? "block" : "none";
+
+      return false;
+    }
+
+    return true;
+  }
+</script>
+{% endblock %}
+
+
+
+

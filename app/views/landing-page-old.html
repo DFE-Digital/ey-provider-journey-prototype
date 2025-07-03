@@ -1,0 +1,203 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+  homepageUrl: "/index",
+  serviceName: "Claim an early years financial incentive payment",
+  serviceUrl: "/index"
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!---<span class="govuk-caption-l">Guidance</span>--->
+    <h1 class="govuk-heading-xl">
+      Claim an early years financial incentive payment
+    </h1>
+
+    <p class="govuk-body-l">
+      Use this service to make an early years financial incentive payment claim for an employee. 
+      </p>
+      
+      
+
+  </div>
+  
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+    
+    <h2 class="govuk-heading-l">
+      Eligibility
+    </h2>
+
+    <p>To make a claim for an employee, they must:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have applied for a job with an incentive attached</li>
+        <li>have started their job after 15 May 2024</li>
+        <li>spend most of the time in their job (70% or more) working directly with children - there is no minimum number of hours and applies to all EYFS part and full time roles</li>
+      </ul>
+
+        <p>Working directly with children can involve any of the following:</p>
+       <ul class="govuk-list govuk-list--bullet">
+        <li>working in the room with children - this can include playrooms, baserooms or classrooms</li>
+          <li>guiding, supporting, and interacting with children in their learning and development</li>
+          <li>giving hands-on care, including health and hygiene</li>
+        </ul>
+
+      <h2 class="govuk-heading-m">
+        Other conditions for the payment
+      </h2>
+
+      <p>The purpose of this incentive scheme is to increase the number of people working with children in permanent roles, within the early years sector.</p>
+      <p>In the six months before starting their current job, your employee must not have had a permanent job working directly with children in an early years setting.</p>
+      <p>If they did work in early years in the 6 months before starting their current job, you can claim if this was in the following types of employment:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>voluntary or unpaid work</li>
+        <li>casual and temporary</li>
+      </ul>
+
+        <p>Casual or temporary work could include:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>zero-hour contracts</li>
+          <li>guaranteed minimum hour contracts</li>
+          <li>self-employed or freelance contracts</li>
+          <li>fixed term contracts (FTCs)</li>
+          <li>agency work and apprenticeship jobs</li>
+        </ul>
+
+        <p>You can find more information about employment contracts on the <a href>ACAS website.</a></p>
+        
+        <p>More information can be found in the <a href>guidance.</a></p>
+
+
+      <h2 class="govuk-heading-l">
+        Information you'll need to provide
+      </h2>
+
+      <p>You’ll need to provide some details about your employee to make a claim. You'll be doing this on behalf of the company, or organisation, the employee works for.</p>
+      <p>You should make sure you have collected their written consent to give us this information before you start. You can use our <a href>consent form</a> to do this</p>
+      <p>You'll need their:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>full name</li>
+        <li>start date</li>
+        <li>email address</li>
+        <li>PAYE reference number</li>
+      </ul>
+      <p>You must also provide your employee with a privacy notice that explains what information will be collected, why it is being collected and who it will be shared with. You can use our <a href>privacy notice</a> for this.</p>
+      <p>We’ll also ask you to confirm that they meet the eligibility criteria.</p>
+
+      <h3 class="govuk-heading-m">
+        Documents
+      </h3>
+
+      <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+  
+  
+        <section class="gem-c-attachment govuk-!-display-none-print" data-module="ga4-link-tracker">
+          <div class="gem-c-attachment__thumbnail">
+            <a class="govuk-link" target="_self" tabindex="-1" aria-hidden="true" data-ga4-link="{&quot;event_name&quot;:&quot;file_download&quot;,&quot;type&quot;:&quot;attachment&quot;}" href="https://example.com/file.odt">
+                <svg class="gem-c-attachment__thumbnail-image gem-c-attachment__thumbnail-image--document" version="1.1" viewBox="0 0 99 140" width="99" height="140" aria-hidden="true">
+          <path d="M12 12h75v27H12zM12 59h9v9h-9zM12 77h9v9h-9zM12 95h9v9h-9zM12 113h9v9h-9zM30 59h57v9H30zM30 77h39v9H30zM30 95h57v9H30zM30 113h48v9H30z" stroke-width="0"></path>
+        </svg>
+        
+        </a></div>
+          <div class="gem-c-attachment__details">
+            <h2 class="gem-c-attachment__title">
+              <a class="govuk-link gem-c-attachment__link" target="_self" data-ga4-link="{&quot;event_name&quot;:&quot;file_download&quot;,&quot;type&quot;:&quot;attachment&quot;}" href="https://example.com/file.odt">Consent form</a>
+        </h2>
+        
+        
+              <p class="gem-c-attachment__metadata"><span class="gem-c-attachment__attribute"><abbr title="OpenDocument Text document" class="gem-c-attachment__abbr">ODT</abbr></span>, <span class="gem-c-attachment__attribute">1 KB</span></p>
+        
+        
+        
+                <p class="gem-c-attachment__metadata">
+                  This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation" target="_self" class="govuk-link">OpenDocument</a> format
+        </p>
+        </div></section>
+        
+        
+        </div>
+
+        <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak" data-govspeak-module-started="true">
+  
+  
+          <section class="gem-c-attachment govuk-!-display-none-print" data-module="ga4-link-tracker">
+            <div class="gem-c-attachment__thumbnail">
+              <a class="govuk-link" target="_self" tabindex="-1" aria-hidden="true" data-ga4-link="{&quot;event_name&quot;:&quot;file_download&quot;,&quot;type&quot;:&quot;attachment&quot;}" href="https://example.com/file.odt">
+                  <svg class="gem-c-attachment__thumbnail-image gem-c-attachment__thumbnail-image--document" version="1.1" viewBox="0 0 99 140" width="99" height="140" aria-hidden="true">
+            <path d="M12 12h75v27H12zM12 59h9v9h-9zM12 77h9v9h-9zM12 95h9v9h-9zM12 113h9v9h-9zM30 59h57v9H30zM30 77h39v9H30zM30 95h57v9H30zM30 113h48v9H30z" stroke-width="0"></path>
+          </svg>
+          
+          </a></div>
+            <div class="gem-c-attachment__details">
+              <h2 class="gem-c-attachment__title">
+                <a class="govuk-link gem-c-attachment__link" target="_self" data-ga4-link="{&quot;event_name&quot;:&quot;file_download&quot;,&quot;type&quot;:&quot;attachment&quot;}" href="https://example.com/file.odt">Privacy notice</a>
+          </h2>
+          
+          
+                <p class="gem-c-attachment__metadata"><span class="gem-c-attachment__attribute"><abbr title="OpenDocument Text document" class="gem-c-attachment__abbr">ODT</abbr></span>, <span class="gem-c-attachment__attribute">1 KB</span></p>
+          
+          
+          
+                  <p class="gem-c-attachment__metadata">
+                    This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation" target="_self" class="govuk-link">OpenDocument</a> format
+          </p>
+          </div></section>
+          
+          
+          </div>
+          </div>
+          </div>
+          <br>
+
+
+      <h2 class="govuk-heading-l">
+        Cancel or get help with your claim
+      </h2>
+      <p>If your employee leaves their job before they’ve been in it for 6 months, you should cancel their claim.</a> </p>
+      <p>You can cancel a claim or get help on this service by contacting us at <a href="">help@opsteam.education.gov.uk</a> </p>
+      <p>Read more about the <a href="">early years financial incentive payment.</a></p>
+      
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/email-address-page",
+        isStartButton: true
+      }) }}
+
+
+    </div>
+  </div>
+
+
+{% endblock %}

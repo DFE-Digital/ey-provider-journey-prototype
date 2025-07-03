@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Check your email
+      </h1>
+
+      <p>
+        We've sent an email to {{ data ['emailAddress'] }}.
+      </p>
+
+
+      <p>
+        Select the link in the email to log in or sign up. The link will expire in 15 minutes. 
+      </p>
+
+
+      <p>
+        If you do not receive the email, check your spam or junk folder. If you cannot find the email, <a href="/">send another link</a> or <a href="/email-address-page">enter another email address</a>.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

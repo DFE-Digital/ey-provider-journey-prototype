@@ -1,0 +1,183 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+    </span>
+  </p>
+</div>
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" form id="start-date-form" method="post" onsubmit="return validateForm()" action="/start-date">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            When did {{ data['firstName'] }} start at {{ data['nurseryName'] }}?
+          </h1>
+        </legend>
+        <div id="start-date-hint" class="govuk-hint">
+          For example, 27 3 2024.
+        </div>
+        <p id="start-date-error" class="govuk-error-message" style="display: none;">
+          <span class="govuk-visually-hidden">Error:</span> Provide a date in the format 27 3 2024
+        </p>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="start-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-day" name="startDay" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="start-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-month" name="startMonth" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="start-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="start-year" name="startYear" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+    {% set startDay = data['startDay'] %}
+    {% set startMonth = data['startMonth'] %}
+    {% set startYear = data['startYear'] %}
+
+  </div>
+</div>
+
+<script>
+  function validateForm() {
+    var startDay = document.getElementById("start-day").value.trim();
+    var startMonth = document.getElementById("start-month").value.trim();
+    var startYear = document.getElementById("start-year").value.trim();
+
+    var startDayError = startDay === "";
+    var startMonthError = startMonth === "";
+    var startYearError = startYear === "";
+
+    if (startDayError || startMonthError || startYearError) {
+      // Show error states
+      document.getElementById("start-date-error").style.display = "block";
+
+      // Optionally, you can add error classes to input fields if needed
+      document.getElementById("start-day").classList.toggle("govuk-input--error", startDayError);
+      document.getElementById("start-month").classList.toggle("govuk-input--error", startMonthError);
+      document.getElementById("start-year").classList.toggle("govuk-input--error", startYearError);
+
+      return false;
+    }
+
+    // If all fields are filled, allow form submission
+    return true;
+  }
+</script>
+
+
+<script>
+  // Function to capture and store the date input
+  function captureDate() {
+    // Retrieve day, month, and year values entered by the user
+    var day = document.getElementById('start-day').value;
+    var month = document.getElementById('start-month').value;
+    var year = document.getElementById('start-year').value;
+
+    // Create a Date object with the captured values
+    var startDate = new Date(year, month - 1, day); // Month is 0-based, so subtract 1
+
+    // Store the formatted date in sessionStorage
+    sessionStorage.setItem('startDate', startDate.toISOString()); // Store as ISO 8601 string for easy retrieval
+
+    // Optional: Display a message or perform any other actions
+    console.log('Start date captured:', startDate);
+  }
+
+  // Call captureDate function when the form is submitted
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('start-date-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+      captureDate(); // Call the function to capture and store the date input
+      // Optional: Redirect to another page or perform any other actions
+    });
+  });
+
+</script>
+
+  
+  
+
+<script>
+  document.querySelector('form.form').addEventListener('submit', function(event) {
+      // Prevent default form submission behavior
+      event.preventDefault();
+
+      // Extract start date values from form inputs
+      const startDay = document.getElementById('start-day').value;
+      const startMonth = document.getElementById('start-month').value;
+      const startYear = document.getElementById('start-year').value;
+
+      // Check if any of the date input fields are empty
+      if (startDay === "" || startMonth === "" || startYear === "") {
+          // Show error states (if needed)
+          document.getElementById("start-date-error").style.display = "block";
+          return; // Exit the function to prevent further execution
+      }
+
+      // Create a Date object from the extracted start date
+      const startDate = new Date(`${startYear}-${startMonth}-${startDay}`);
+
+      // Check if the start date is after 11 Nov 2024
+      const eligibilityDate = new Date('2024-11-11');
+      if (startDate > eligibilityDate) {
+          // Redirect to '/child-facing-B'
+           window.location.href = '/current-contract-type';
+
+      // Redirect to the chosen page
+      window.location.href = randomPage;
+      } else {
+          // Redirect to '/ineligible-start-date'
+          window.location.href = '/ineligible-start-date';
+      }
+  });
+</script>
+
+
+
+
+
+{% endblock %}
+

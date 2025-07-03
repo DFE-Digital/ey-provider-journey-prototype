@@ -1,0 +1,149 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Early years incentive payment guidance
+{% endblock %}
+
+
+{% block header %}
+  <!-- Blank header with no service name for this page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Education, training and skills",
+        href: "#"
+      },
+      {
+        text: "Teaching and leadership",
+        href: "#"
+      },
+      {
+        text: "Recruiting, inducting and managing teachers",
+        href: "#"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-xl">Collection</span>
+      <h1 class="govuk-heading-xl">
+        Additional payments for teaching: eligibility and payment details
+      </h1>
+      
+      <p class="govuk-body-l">We give additional payments to some teachers to teach certain subjects in areas that have a high need for teachers.</p>
+
+    </div>
+
+  </div>
+
+
+
+      <h2 class="govuk-heading-m">
+        Documents
+      </h2>
+      
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <h3 class="govuk-heading-s"> <a>Early career payments for teachers</a></h3>
+      <p style="color:#505a5f;">Guidance</p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+      <p>The Department for Education will pay the employee’s Income Tax and National Insurance contributions.</p>
+      <p>There may be other deductions based on the employee’s circumstances. For example, if they’re making student loan repayments. This could reduce the final amount of the incentive below £1000.</p>
+
+      <h2 class="govuk-heading-m">Universal Credit</h2>
+
+      <p>If the employee claims Universal Credit, the £1000 payment may affect the amount of Universal Credit they receive.</p>
+      <p>Read more about <a href="https://www.gov.uk/guidance/universal-credit-and-earnings">how changes to earnings can affect Universal Credit</a>.</p>
+      
+      <h2 class="govuk-heading-m">Student loan</h2>
+
+      <p>The £1000 payment will not be affected by any funding they have previously received to study for a college course or apprenticeship.</p>
+      <p>If they have previously studied at university and have a student loan, their £1000 payment may affect their repayments.</p>
+
+      <h2 class="govuk-heading-m">If they’re currently repaying a student loan</h2>
+
+      <p>If they’re currently repaying a student loan, a deduction towards it may come out of their £1000 payment.</p>
+
+      <h2 class="govuk-heading-m">If they have a student loan but are not currently repaying it</h2>
+
+      <p>If their payment takes them over the amount they must earn to start paying back a student loan, a deduction may go towards repaying it.</p>
+      <p>Read more about <a href="https://www.gov.uk/repaying-your-student-loan/when-you-start-repaying">when they'll start paying back a student loan</a> and <a href="https://www.gov.uk/repaying-your-student-loan/what-you-pay">what they'll pay</a>.</p>
+      <p>They may be able to claim any deductions back at the end of the tax year. Read more about how employees can <a href="https://www.gov.uk/repaying-your-student-loan/getting-a-refund">claim back student loan deductions</a>.</p>
+
+      <h1 class="govuk-heading-l">
+        If the employee leaves before they’ve been in the role for 6 months
+      </h1>
+
+      <p>You need to tell us by email if your employee leaves your nursery before they have completed 6 months. You can do this by contacting us at opsteam@education.gov.uk.</p>
+      <p>The employee must complete 6 months in their role to receive the payment. We'll contact you by email before that point to check your employee is still working in their role.</p>
+    
+      
+
+
+      <nav class="govuk-prototype-kit-common-templates-pagination" role="navigation" aria-label="Pagination">
+
+     
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Additional payments for teaching: eligibility and payment details
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Early-career payments for teachers
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Golden Hello reimbursement: guidance for local authorities and academies
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+  </main>
+</div>
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

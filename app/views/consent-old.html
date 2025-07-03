@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="/current-school" method="post" onsubmit="return validateForm()">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  
+        <div class="govuk-form-group" id="checkbox-group">
+          <fieldset class="govuk-fieldset" aria-describedby="consent-error">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Declaration of Employee Consent
+              </h1>
+            </legend>
+			<p>
+              You need to confirm that you’ve got consent from your employee before you can continue with a claim.</p>
+            <p>
+              By continuing you’re confirming that you've:
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>obtained written consent from your employee to share their personal information (full name, start date, email address)</li>
+              <li>provided your employee with a privacy notice that explains what information will be collected, why it is being collected and who it will be shared with</li>
+            </ul>
+            <p>You do not need to send us the consent forms, but you should keep them for your records.
+            </p>
+              <p>If you have any questions, or need further guidance, contact our support team at <a href>help@opsteam.com</a>
+            </p>
+            
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                By ticking this box, you confirm that you have obtained consent from your employee.
+              </strong>
+            </div>
+
+            <p id="consent-error" class="govuk-error-message" style="display: none;">
+              <span class="govuk-visually-hidden">Error:</span> You must be able to confirm this information to continue
+            </p>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="consent" name="consentGiven" type="checkbox" value="confirmed">
+                <label class="govuk-label govuk-checkboxes__label" for="consent">
+                  I confirm that I have obtained consent from my employee and have provided them with the relevant privacy notice.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      var checkBox = document.getElementById("consent");
+      var errorParagraph = document.getElementById("consent-error");
+      if (!checkBox.checked) {
+        errorParagraph.style.display = "block";
+        document.getElementById("checkbox-group").classList.add("govuk-form-group--error");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+{% endblock %}

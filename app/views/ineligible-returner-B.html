@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/returner-B" method="post">
+      <h1 class="govuk-heading-l">
+        This person is not eligible for an incentive payment
+      </h1>
+
+      <p>
+        Based on the information you’ve provided, this person is not eligible for an early years incentive payment. 
+      </p>
+    <p class="govuk-body">To continue with this claim you must be able to confirm that:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>this role is at least 70% child-facing</li>
+<li>your employee did not work in any early years roles in the 6 months before starting their current role</li>
+</ul>
+<br>
+        <h2 class="govuk-heading-m">Get help with your claim</h2>
+
+      <p>
+        Contact us for help at <a href="mailto:EY.Financial-Incentives@education.gov.uk">EY.Financial-Incentives@education.gov.uk</a>.
+      </p>
+
+      {{ govukButton({
+        text: "Start again"
+      }) }}
+
+    </div>
+  </form>
+  </div>
+
+{% endblock %}

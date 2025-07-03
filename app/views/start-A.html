@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+  homepageUrl: "/index",
+  serviceName: "Claim an early years financial incentive payment",
+  serviceUrl: "/index"
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Before you start
+      </h1>
+
+      <p>Use this service to make an early years financial incentive payment claim for an employee.</p>
+      <p>To make a claim for your employee, they must:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have applied for a role with an incentive attached</li>
+        <li>have started their role after 15 May 2024</li>
+        <li>spend at least 70% of their time working directly with children</li>
+      </ul>
+
+      <p>They must also not have worked in early years in the six months before starting their current role, unless their previous role:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>was temporary or fixed term</li>
+        <li>involved working directly with children less than 70% of the time</li>
+      </ul>
+
+      <h1 class="govuk-heading-l">
+        Information you'll need to provide
+      </h1>
+
+      <p>You’ll need to provide some personal information about your employee to make a claim.</p>
+      <p>You should ensure you have collected their written consent to give us this information before you start. You can use our <a href="">consent form</a> to do this.</p>
+      <p>You’ll need their:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>full name</li>
+        <li>start date</li>
+        <li>email address</li>
+        <li>National Insurance number</li>
+      </ul>
+      <p>We’ll also ask you to confirm that they meet the eligibility criteria.</p>
+
+      <h1 class="govuk-heading-l">
+        Cancelling a claim
+      </h1>
+      <p>If your employee leaves their role before they’ve been in it for 6 months, you should cancel their claim.</a> </p>
+      <p>You can cancel a claim by contacting us at <a href="">help@opsteam.education.gov.uk.</a> </p>
+
+      <h1 class="govuk-heading-l">
+        Get help with your claim
+      </h1>
+
+      <p>Read more about the <a href="">early years financial incentive payment.</a></p>
+       <p> Contact us for help at <a href="">help@opsteam.education.gov.uk.</a></p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/email-address-page",
+        isStartButton: true
+      }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}

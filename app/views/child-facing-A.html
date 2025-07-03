@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="/child-facing-A" method="post" onsubmit="return validateForm()">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group" id="checkbox-group">
+        <fieldset class="govuk-fieldset" aria-describedby="declaration-A-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Confirm {{ data['firstName'] }} spends most of their time in their role working directly with children
+            </h1>
+          </legend>
+          <div id="declaration-A-hint" class="govuk-hint">
+            {{ data['firstName'] }}’s role must involve spending most of their contracted hours (approximately 70% or more) working directly with children.
+          </div>
+          <p id="declaration-A-error" class="govuk-error-message" style="display: none;">
+            <span class="govuk-visually-hidden">Error:</span> You must be able to confirm this information to continue
+          </p>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="declaration-A" name="declarationA" type="checkbox" value="checked">
+              <label class="govuk-label govuk-checkboxes__label" for="declaration-A">
+                I confirm that at least 70% of {{ data['firstName'] }}’s time in their role is spent working directly with children.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What does working at least 70% of time directly with children mean?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+		<p>70% or more time applies to all early years foundation stage (EYFS) part and full-time roles, and there are no minimum number of contracted hours.</p>
+          <p class="govuk-body">Working directly with children can involve:</p>
+      
+	  
+          <ul class="govuk-list govuk-list--bullet">
+		  <li>working in the room with children — this can include playrooms, baserooms or classrooms</li>
+          <li>guiding, supporting, and interacting with children in their learning and development</li>
+          <li>giving hands-on care, including health and hygiene</li>
+            
+            </ul>
+			
+        </div>
+      </details>
+      <p><a href="/ineligible">I cannot confirm this information</a></p>
+      {{ govukButton({ text: "Continue" }) }}
+    </div>
+  </div>
+</form>
+  <script>
+    function validateForm() {
+      var checkBox = document.getElementById("declaration-A");
+      var errorParagraph = document.getElementById("declaration-A-error");
+      if (!checkBox.checked) {
+        errorParagraph.style.display = "block";
+        document.getElementById("checkbox-group").classList.add("govuk-form-group--error");
+        return false;
+      }
+      return true;
+    }
+  </script>
+  
+  
+
+
+{% endblock %}

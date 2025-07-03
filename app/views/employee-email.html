@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a real service
+  </p>
+</div>
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div id="employee-email-group" class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="employee-email">
+                What is {{ data['firstName'] }}'s email address?
+              </label>
+            </h1>
+            <div id="employee-email-hint" class="govuk-hint">
+              We'll use this to ask your employee to provide their payment details
+            </div>
+
+      <form class="form" action="/check-answers" method="post" onsubmit="return validateForm();">
+
+        <p>
+          <div class="govuk-form-group">
+            <p id="employee-email-error" class="govuk-error-message" style="display: none;">
+              <span class="govuk-visually-hidden">Error:</span> Enter a valid email address
+            </p>
+            <input class="govuk-input" id="employee-email" name="employeeEmail" type="text">
+          </div>
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      var nurseryName = document.getElementById("employee-email").value;
+      if (nurseryName.trim() === "") {
+        document.getElementById("employee-email-group").classList.add("govuk-form-group--error");
+        document.getElementById("employee-email-error").style.display = "block";
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+{% endblock %}
